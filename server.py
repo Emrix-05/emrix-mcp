@@ -1,6 +1,13 @@
+import os
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("EMRIX AI YouTube Automation")
+PORT = int(os.environ.get("PORT", "8000"))
+
+mcp = FastMCP(
+    "EMRIX AI YouTube Automation",
+    host="0.0.0.0",
+    port=PORT,
+)
 
 @mcp.tool()
 def emrix_project_status() -> str:
